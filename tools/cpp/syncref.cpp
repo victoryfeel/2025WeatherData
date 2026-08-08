@@ -31,7 +31,7 @@ void app_exit(int sig);
 void app_help();
 bool xml_to_arg(const char* strxmlbuffer);
 
-void _syncref();
+bool _syncref();
 
 int main(int argc, char* argv[]) {
   if (argc != 3) {
@@ -80,8 +80,52 @@ int main(int argc, char* argv[]) {
 }
 
 
-void _syncref() {
+bool _syncref() {
   ctimer timer;
+  sqlstatement stmt_delete(&connloc);
+  sqlstatement stmt_insert(&connloc);
+
+  /* TODO:
+   不分批刷新，适用于数据量不大（百万行以下）的场景，远程表中的增加、修改和删除操作都可以同步到本地表。
+   1. delete from T_ZHOBTCODE2 where stid like '57%';
+   2. insert into T_ZHOBTCODE2(stid,cityname,provname,lat,lon,height,upttime,recid)
+      select obtid,cityname,provname,lat,lon,height,upttime,keyid from T_ZHOBTCODE1@db128 where
+   obtid like '57%';
+  */
+  if (starg.synctype == 1) {
+    logfile.write("sync %s to %s ...", starg.linktname, starg.localtname);
+
+    // 1-先删除本地表starg.localtname中满足starg.lwhere条件的记录。
+    stmt_delete.prepare("delete from %s %s", starg.localtname, starg.lwhere);
+    if (stmt_delete.execute() != 0) {
+      logfile.write(
+        "stmt_delete.execute() failed.\n%s\n%s", stmt_delete.sql(), stmt_delete.message()
+      );
+      return false;
+    }
+    // 2-再把远程表starg.linktname中满足start.rwhere条件的记录插入到本地表starg.localtname。
+    stmt_insert.prepare(
+      "insert into %s(%s) select %s from %s %s",
+      starg.localtname,
+      starg.localcols,
+      starg.remotecols,
+      starg.linktname,
+      starg.rwhere
+    );
+    if (stmt_insert.execute() != 0) {
+      logfile.write(
+        "stmt_insert.execute() failed.\n%s\n%s", stmt_insert.sql(), stmt_insert.message()
+      );
+      connloc.rollback();
+      return false;
+    }
+    logfile << " " << stmt_insert.rpc() << " rows in " << timer.elapsed() << "sec.\n";
+    connloc.commit();
+
+    return true;
+  }
+
+  return true;
 }
 
 
