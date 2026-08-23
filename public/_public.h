@@ -86,8 +86,7 @@ private:
   ccmdstr(const ccmdstr&) = delete;            // 禁用拷贝构造函数。
   ccmdstr& operator=(const ccmdstr&) = delete; // 禁用赋值函数。
 public:
-  ccmdstr() {
-  } // 构造函数。
+  ccmdstr() {} // 构造函数。
   ccmdstr(const string& buffer, const string& sepstr, const bool bdelspace = false);
 
   const string& operator[](int ii) const // 重载[]运算符，可以像访问数组一样访问m_cmdstr成员。
@@ -339,8 +338,7 @@ public:
   string m_ctime;     // 文件生成的时间，即stat结构体的st_ctime成员。
   string m_atime;     // 文件最后一次被访问的时间，即stat结构体的st_atime成员。
 
-  cdir() : m_pos(0), m_fmt("yyyymmddhh24miss") {
-  } // 构造函数。
+  cdir() : m_pos(0), m_fmt("yyyymmddhh24miss") {} // 构造函数。
 
   // 设置文件时间的格式，支持"yyyy-mm-dd
   // hh24:mi:ss"和"yyyymmddhh24miss"两种，缺省是后者。
@@ -389,8 +387,7 @@ private:
   string m_filename;    // 文件名，建议采用绝对路径。
   string m_filenametmp; // 临时文件名，在m_filename后面加".tmp"。
 public:
-  cofile() {
-  }
+  cofile() {}
   bool isopen() const {
     return fout.is_open();
   } // 文件是否已打开。
@@ -449,8 +446,7 @@ private:
   ifstream fin;      // 读取文件的对象。
   string m_filename; // 文件名，建议采用绝对路径。
 public:
-  cifile() {
-  }
+  cifile() {}
 
   // 判断文件是否已打开。
   bool isopen() const {
@@ -517,8 +513,7 @@ class clogfile {
 
 public:
   // 构造函数，日志文件的大小缺省100M。
-  clogfile(int maxsize = 100) : m_maxsize(maxsize) {
-  }
+  clogfile(int maxsize = 100) : m_maxsize(maxsize) {}
 
   // 打开日志文件。
   // filename：日志文件名，建议采用绝对路径，如果文件名中的目录不存在，就先创建目录。
@@ -589,8 +584,7 @@ private:
   string m_ip;  // 服务端的ip地址。
   int m_port;   // 服务端通讯的端口。
 public:
-  ctcpclient() : m_connfd(-1), m_port(0) {
-  } // 构造函数。
+  ctcpclient() : m_connfd(-1), m_port(0) {} // 构造函数。
 
   // 向服务端发起连接请求。
   // ip：服务端的ip地址。
@@ -629,8 +623,7 @@ private:
   int m_listenfd;                  // 服务端用于监听的socket。
   int m_connfd;                    // 客户端连接上来的socket。
 public:
-  ctcpserver() : m_listenfd(-1), m_connfd(-1) {
-  } // 构造函数。
+  ctcpserver() : m_listenfd(-1), m_connfd(-1) {} // 构造函数。
 
   // 服务端初始化。
   // port：指定服务端用于监听的端口。
@@ -826,8 +819,7 @@ private:
   csemp(const csemp&) = delete;            // 禁用拷贝构造函数。
   csemp& operator=(const csemp&) = delete; // 禁用赋值函数。
 public:
-  csemp() : m_semid(-1) {
-  }
+  csemp() : m_semid(-1) {}
 
   // 如果信号量已存在，获取信号量；如果信号量不存在，则创建它并初始化为value。
   // 如果用于互斥锁，value填1，sem_flg填SEM_UNDO。

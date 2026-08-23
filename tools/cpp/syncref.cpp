@@ -1,4 +1,3 @@
-
 #include "_tools.h"
 
 clogfile logfile;
@@ -124,6 +123,26 @@ bool _syncref() {
 
     return true;
   }
+
+
+  /* TODO: 分批刷新
+    1. 显式连接到远程数据库（ connrem ）。
+    2. 查询远程数据库获取需要同步的记录键值(SELECT remotekeycol FROM remotetname)
+    3. 构造使用IN子句(最多包含starg.maxcount个绑定变量)的参数化DELETE和INSERT...SELECT语句。
+    4. 遍历远程查询结果，将键值收集到数组中。
+    5. 当数组达到  maxcount  时，在本地数据库上执行批量的  DELETE  和  INSERT操作并提交。
+    6. 在循环结束后处理剩余的未满一批的记录。
+   */
+  if (connrem.connecttodb(starg.remoteconnstr, starg.charset) != 0) {
+    logfile.write("connetc remote-db(%s) failed. \n%s\n", starg.remoteconnstr, connrem.message());
+    return false;
+  }
+
+  sqlstatement stmt_select(&connrem);
+  stmt_select.prepare("select %s from %s %s", starg.remotekeycol, starg.remotetname, starg.rwhere);
+  char remote_key_value[starg.keylen + 1];
+  stmt_select.bindin(1, remote_key_value, 50);
+
 
   return true;
 }

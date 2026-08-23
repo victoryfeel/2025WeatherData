@@ -1857,8 +1857,7 @@ bool csemp::destroy() {
   return true;
 }
 
-csemp::~csemp() {
-}
+csemp::~csemp() {}
 
 
 } // namespace idc
