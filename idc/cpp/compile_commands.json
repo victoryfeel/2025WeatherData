@@ -1,0 +1,133 @@
+[
+  {
+    "file": "crtsurfdata.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "crtsurfdata.cpp",
+      "-o",
+      "crtsurfdata",
+      "-I/project/public"
+    ],
+    "directory": "/project/idc/cpp",
+    "output": "crtsurfdata"
+  },
+  {
+    "file": "/project/public/_public.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-o",
+      "crtsurfdata",
+      "-I/project/public",
+      "/project/public/_public.cpp"
+    ],
+    "directory": "/project/idc/cpp",
+    "output": "crtsurfdata"
+  },
+  {
+    "file": "obtcodetodb.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "obtcodetodb.cpp",
+      "-o",
+      "obtcodetodb",
+      "-I/project/public",
+      "-I/usr/include",
+      "-I/project/public/db/oracle"
+    ],
+    "directory": "/project/idc/cpp",
+    "output": "obtcodetodb"
+  },
+  {
+    "file": "/project/public/_public.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-o",
+      "obtcodetodb",
+      "-I/project/public",
+      "/project/public/_public.cpp",
+      "-I/usr/include",
+      "-I/project/public/db/oracle"
+    ],
+    "directory": "/project/idc/cpp",
+    "output": "obtcodetodb"
+  },
+  {
+    "file": "/project/public/db/oracle/_ooci.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-o",
+      "obtcodetodb",
+      "-I/project/public",
+      "-I/usr/include",
+      "-I/project/public/db/oracle",
+      "/project/public/db/oracle/_ooci.cpp"
+    ],
+    "directory": "/project/idc/cpp",
+    "output": "obtcodetodb"
+  },
+  {
+    "file": "obtmindtodb.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "obtmindtodb.cpp",
+      "-o",
+      "obtmindtodb",
+      "-I/project/public",
+      "-I/usr/include",
+      "-I/project/public/db/oracle"
+    ],
+    "directory": "/project/idc/cpp",
+    "output": "obtmindtodb"
+  },
+  {
+    "file": "idcapp.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "idcapp.cpp",
+      "-o",
+      "obtmindtodb",
+      "-I/project/public",
+      "-I/usr/include",
+      "-I/project/public/db/oracle"
+    ],
+    "directory": "/project/idc/cpp",
+    "output": "obtmindtodb"
+  },
+  {
+    "file": "/project/public/_public.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-o",
+      "obtmindtodb",
+      "-I/project/public",
+      "/project/public/_public.cpp",
+      "-I/usr/include",
+      "-I/project/public/db/oracle"
+    ],
+    "directory": "/project/idc/cpp",
+    "output": "obtmindtodb"
+  },
+  {
+    "file": "/project/public/db/oracle/_ooci.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-o",
+      "obtmindtodb",
+      "-I/project/public",
+      "-I/usr/include",
+      "-I/project/public/db/oracle",
+      "/project/public/db/oracle/_ooci.cpp"
+    ],
+    "directory": "/project/idc/cpp",
+    "output": "obtmindtodb"
+  }
+]

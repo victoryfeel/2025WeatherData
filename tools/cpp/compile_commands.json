@@ -1,0 +1,224 @@
+[
+  {
+    "file": "procctl.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "procctl.cpp",
+      "-o",
+      "procctl"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "procctl"
+  },
+  {
+    "file": "checkproc.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "checkproc.cpp",
+      "-o",
+      "checkproc",
+      "-I/project/public"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "checkproc"
+  },
+  {
+    "file": "/project/public/_public.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-o",
+      "checkproc",
+      "-I/project/public",
+      "/project/public/_public.cpp"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "checkproc"
+  },
+  {
+    "file": "deletefiles.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "deletefiles.cpp",
+      "-o",
+      "deletefiles",
+      "-I/project/public"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "deletefiles"
+  },
+  {
+    "file": "gzipfiles.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "gzipfiles.cpp",
+      "-o",
+      "gzipfiles",
+      "-I/project/public"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "gzipfiles"
+  },
+  {
+    "file": "ftpgetfiles.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-g",
+      "ftpgetfiles.cpp",
+      "-o",
+      "ftpgetfiles",
+      "-I/project/public"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "ftpgetfiles"
+  },
+  {
+    "file": "/project/public/_ftp.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-g",
+      "-o",
+      "ftpgetfiles",
+      "-I/project/public",
+      "/project/public/_ftp.cpp"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "ftpgetfiles"
+  },
+  {
+    "file": "ftpputfiles.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-g",
+      "ftpputfiles.cpp",
+      "-o",
+      "ftpputfiles",
+      "-I/project/public"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "ftpputfiles"
+  },
+  {
+    "file": "fileserver.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "fileserver.cpp",
+      "-o",
+      "fileserver",
+      "-I/project/public"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "fileserver"
+  },
+  {
+    "file": "tcpputfiles.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-g",
+      "tcpputfiles.cpp",
+      "-o",
+      "tcpputfiles",
+      "-I/project/public"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "tcpputfiles"
+  },
+  {
+    "file": "dminingoracle.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "dminingoracle.cpp",
+      "-o",
+      "dminingoracle",
+      "-I/project/public",
+      "-I/usr/include",
+      "-I/project/public/db/oracle"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "dminingoracle"
+  },
+  {
+    "file": "/project/public/db/oracle/_ooci.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-o",
+      "dminingoracle",
+      "-I/project/public",
+      "-I/usr/include",
+      "-I/project/public/db/oracle",
+      "/project/public/db/oracle/_ooci.cpp"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "dminingoracle"
+  },
+  {
+    "file": "xmltodb.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "xmltodb.cpp",
+      "-o",
+      "xmltodb",
+      "-I/project/public",
+      "-I/usr/include",
+      "-I/project/public/db/oracle"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "xmltodb"
+  },
+  {
+    "file": "_tools.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "_tools.cpp",
+      "-o",
+      "xmltodb",
+      "-I/project/public",
+      "-I/usr/include",
+      "-I/project/public/db/oracle"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "xmltodb"
+  },
+  {
+    "file": "deletetable.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "deletetable.cpp",
+      "-o",
+      "deletetable",
+      "-I/project/public",
+      "-I/usr/include",
+      "-I/project/public/db/oracle"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "deletetable"
+  },
+  {
+    "file": "migratetable.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "migratetable.cpp",
+      "-o",
+      "migratetable",
+      "-I/project/public",
+      "-I/usr/include",
+      "-I/project/public/db/oracle"
+    ],
+    "directory": "/project/tools/cpp",
+    "output": "migratetable"
+  }
+]
