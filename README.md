@@ -2,6 +2,8 @@
 
 南京市气象局有上百个观测系统和业务系统，产生的观测数据和服务产品分散在各系统中，不方便共享。数据中心的功能是从各业务系统中采集数据，加工处理后，统一存储在Oracle数据库中，业务系统可以直连Oracle数据库，用SQL语句查询数据，也可以通过数据访问接口获取数据。
 
+![CyBk1Qj.png](https://iili.io/CyBk1Qj.png)
+
 # B-各模块功能
 
 ## 1-数据抽取模块
@@ -50,7 +52,7 @@
 6. 支持不同表结构的同步（源表和目的表的表结构不同）；
 7. 可以指定同步数据的条件。
 
-## 7-数据处理模块和数据统计模块
+## 7-数据处理模块和数据统计模块（由其他同学和师兄完成）
 
 略.
 
@@ -60,53 +62,19 @@
 2. 这是一个通用的功能，通过配置参数，就可以实现不同的数据访问接口；
 3. 服务端程序采用了线程、线程通讯、管道、智能指针和epoll等技术；
 4. 数据访问接口性能瓶颈在Oracle数据库，并发性能在3-5千/秒左右。
-5. 服务端程序的总体结构如下：
+5. 服务端程序的总体结构如下：  
+   ![CyBSFrQ.png](https://iili.io/CyBSFrQ.png)
 
-```mermaid
-flowchart LR
-    %% Left Section
-    subgraph Left [" "]
-        direction TB
-        T1[接收线程]
-        R1["读事件<br>新建连接、请求报文、关闭连接"]
-    end
-    style Left fill:none,stroke:none
+# C-三大功能模块回顾
 
-    Q1[接收队列]
+## 1-数据采集与数据入库
 
-    %% Center Section
-    subgraph Workers ["工作线程"]
-        direction TB
-        W1[工作线程一]
-        W2[工作线程二]
-        W3[工作线程三]
-    end
+![CyBQfVI.png](https://iili.io/CyBQfVI.png)
 
-    DB[(数据库)]
+## 2-数据同步
 
-    Q2[发送队列]
+![CyBQrWN.png](https://iili.io/CyBQrWN.png)
 
-    %% Right Section
-    subgraph Right [" "]
-        direction TB
-        T2[发送线程]
-        W_Ev["写事件<br>响应报文"]
-    end
-    style Right fill:none,stroke:none
+## 3-数据访问接口
 
-    %% Connections
-    T1 --> Q1
-    Q1 --> W1
-    Q1 --> W2
-    Q1 --> W3
-
-    W1 <--> DB
-    W2 <--> DB
-    W3 <--> DB
-
-    W1 --> Q2
-    W2 --> Q2
-    W3 --> Q2
-
-    Q2 --> T2
-```
+![CyBZ6Tx.png](https://iili.io/CyBZ6Tx.png)
