@@ -9,7 +9,7 @@ ORACPP = /project/public/db/oracle/_ooci.cpp
 CFLAGS = -g
 
 
-all:procctl checkproc deletefiles gzipfiles ftpgetfiles ftpputfiles fileserver tcpputfiles dminingoracle xmltodb deletetable migratetable
+all:procctl checkproc deletefiles gzipfiles ftpgetfiles ftpputfiles fileserver tcpputfiles dminingoracle xmltodb deletetable migratetable inetd
 
 procctl:procctl.cpp
 	g++ procctl.cpp -o procctl
@@ -49,6 +49,15 @@ deletetable:deletetable.cpp
 migratetable:migratetable.cpp _tools.cpp
 	g++ $(CFLAGS) migratetable.cpp _tools.cpp -o migratetable $(PUBINCL) $(PUBCPP) $(ORAINCL) $(ORALIB) $(ORALIBS) $(ORACPP)
 	mv -f migratetable ../bin/.
+syncref:syncref.cpp _tools.cpp
+	g++ $(CFLAGS) -o syncref syncref.cpp $(PUBINCL) $(PUBCPP) $(ORAINCL)  $(ORALIB) $(ORALIBS) $(ORACPP) _tools.cpp
+	mv -f syncref ../bin/.
+syncinc:syncinc.cpp _tools.cpp
+	g++ $(CFLAGS) -o syncinc syncinc.cpp $(PUBINCL) $(PUBCPP) $(ORAINCL)  $(ORALIB) $(ORALIBS) $(ORACPP) _tools.cpp
+	mv -f syncinc ../bin/.
+inetd:inetd.cpp
+	g++ $(CFLAGS) inetd.cpp -o inetd $(PUBINCL) $(PUBCPP) 
+	mv -f inetd ../bin/.
 
 clean:
 	rm -rf ../bin/*
@@ -61,6 +70,21 @@ runstop:
 ##########################################################
 ############ 调试命令
 ##########################################################
+
+runv:
+	../bin/inetd /project/logs/inetd.log /project/config/inetd.conf
+cleanv:
+	rm -rf ../bin/inetd
+	rm -rf /project/logs/inetd.log
+cleanvlog:
+	rm -rf /project/logs/inetd.log
+clogv:
+	cat /project/logs/inetd.log
+tlogv:
+	tail -f /project/logs/inetd.log
+
+
+
 tcp:tcpputfiles fileserver
 catput:
 	cat /log/idc/tcpputfiles_surfdata.log

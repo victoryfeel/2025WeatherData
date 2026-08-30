@@ -1,7 +1,7 @@
 # IDE
 .vscode/
 .idea/
-.agents/
+.cache/
 *.code-workspace
 *.swp
 *~
@@ -9,24 +9,27 @@
 # CMake-Build
 build/
 cmake-build-*/
-compile_commands.json
-*.o
-*.obj
-*.exe
-*.out
+# compile_commands.json
 
-# logs-tmp
+# C/C++ Build Artifacts
+# *.o
+# *.obj
+# *.out
+# *.a
+# *.so
+# *.dll
+
+# Binary Directories
+bin/
+**/bin/
+
+# Logs & Tmp
+logs/
 *.log
+*.log.*
 *.tmp
 *.cache
 
 # System
 .DS_Store
 Thumbs.db
-
-# Binary
-*.a
-*.out
-*.o
-*.so
-*.dll
