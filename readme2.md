@@ -213,7 +213,9 @@ insert into t_custom values('0001','张三',2,sysdate,2);
   - **流程**：建立连接 $\rightarrow$ 数据传输 $\rightarrow$ **保持连接（心跳维持）** $\rightarrow$ 数据传输 $\rightarrow$ ... $\rightarrow$ 关闭连接。
   - 需处理死连接（Keep-Alive/心跳包）
 - 传输文件流程
-  ![Pasted image 20260512112634](../image/Pasted-image-20260512112634.png)
+
+  ![Pasted image 20260512112634](./assets/Pasted-image-20260512112634.png)
+
 - 同步通讯synchronous vs 异步通讯asynchronous
   - asynchronous实现：
     1. 多进程：一个进程接收，一个进程发送
