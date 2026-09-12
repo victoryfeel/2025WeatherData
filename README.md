@@ -4,8 +4,6 @@
 
 ![structure](./assets/project-structure.png)
 
-![CyBk1Qj.png](https://iili.io/CyBk1Qj.png)
-
 # B-各模块功能
 
 ## 1-数据抽取模块
@@ -93,8 +91,6 @@
 
 ![data-api](./assets/data-api-struct.png)
 
-![CyBSFrQ.png](https://iili.io/CyBSFrQ.png)
-
 **details** :
 
 # C-三大功能模块回顾
@@ -124,19 +120,13 @@
 
 ![module1](./assets/module1-collect-data.png)
 
-![CyBQfVI.png](https://iili.io/CyBQfVI.png)
-
 ## 2-数据同步
 
 ![module2](./assets/module2-sync-data.png)
 
-![CyBQrWN.png](https://iili.io/CyBQrWN.png)
-
 ## 3-数据访问接口
 
 ![module3](./assets/module3-access-data.png)
-
-![CyBZ6Tx.png](https://iili.io/CyBZ6Tx.png)
 
 # D-技术补充
 
@@ -416,6 +406,8 @@ client -> reverse-proxy -> server2
                        |
                         -> server3
 ```
+
+![reverse-proxy](./assets/proxy-reverse.png)
 
 ## 6-定时器
 
